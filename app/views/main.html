@@ -1,0 +1,105 @@
+<div class="row paddingRow" >
+  <div class="container col-md-6 div-border col-lg-push-6 col-md-push-6 margin">
+    <div class="col-md-2 col-xs-2 pull-left margin">
+      <img class="img" src="images/ico_search.png" alt="Search" class="margin">
+    </div>
+    <div class="col-md-10 col-xs-10 pull-right margin">
+      <div class="inner-addon right-addon ">
+        <i class="glyphicon glyphicon-remove"></i>
+        <input ng-model="filter" style="border: none;" type="text" class="form-control " placeholder="Buscar Empresas" />
+      </div>
+    </div>
+  </div>
+</div>
+<h1 class="FontAzul">Empresas</h1>
+<div class="row">
+    <table class="table table-hover">
+      <thead class="TableHeaderColor">
+        <tr>
+          <th>Nombre de la Empresa</th>
+          <th>Ubicación</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="companie in companies | filter : filter">
+          <td ng-click="buscarDetalle(companie)">{{companie.name}}</td>
+          <td>{{companie.offices[0].address}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <p class="text-center" style="font-size:large; color: gray;" ng-show="(companies | filter:filter).length == 0">No hay empresas registradas con ese nombre!</p>
+</div>
+
+<!--Container de los detalles de la empresa-->
+<div class="container div-card" ng-if="clientes && productos && switch == 1 &&(companies | filter:filter).length != 0" >
+  
+<div class="row">
+      <div class="col-md-5 col-xs-5">
+          <p class="text-left" style="font-size:medium;">{{companieSelect.name}}</p>
+      </div>
+      <div class="col-md-5 col-xs-5">
+          <p class="text-right" style="font-size:medium;">{{companieSelect.offices[0].address}}</p>
+      </div>
+      <div class="col-md-2 col-xs-2" style="padding-right:5px;" ng-click="cambiarSwitch()">
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="FontAzul">Datos de la Empresa <img class="img2" src="images/ico_company.png" alt="Search" class="margin"></h3>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4">
+        <p><b>Nombre:</b> {{companieSelect.name}}</p>
+      </div>
+      <div class="col-md-4">
+          <p><b>Teléfono:</b> {{companieSelect.offices[0].phone}}</p>
+      </div>
+      <div class="col-md-4">
+          <p><b>País:</b> {{companieSelect.offices[0].country}}</p>
+      </div>
+      <div class="col-md-6">
+          <p><b>Dirección:</b> {{companieSelect.offices[0].address}}</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+          <h3 class="FontAzul">Productos <img class="img2" src="images/ico_products.png" alt="Search" class="margin"></h3>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <ul class="list-unstyled">
+                <li class="space" ng-repeat ="producto in productos" >
+                  <b>Producto {{$index + 1}}:</b> {{producto.name}}
+                </li>
+              </ul>
+          </div>
+      </div>
+    <div class="row">
+          <div class="col-md-12">
+            <h3 class="FontAzul">Clientes <img class="img2" src="images/ico_clients.png" alt="Search" class="margin"></h3>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 space" ng-repeat="cliente in clientes" >
+                <div class="col-md-5">
+                    <p><b>Nombre:</b> {{cliente.name}}</p>
+                  </div>
+                  <div class="col-md-4">
+                      <p><b>Teléfono:</b> {{cliente.offices[0].phone}}</p>
+                  </div>
+                  <div class="col-md-3">
+                      <p><b>País:</b> {{cliente.offices[0].country}}</p>
+                  </div>
+                  <div class="col-md-6 borderInput">
+                      <p><b>Dirección:</b> {{cliente.offices[0].address}}</p>
+                  </div>
+            </div>
+            <br><br>      
+      </div>
+</div>
+

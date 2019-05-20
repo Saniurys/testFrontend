@@ -1,0 +1,104 @@
+
+body {
+  padding: 0;
+}
+
+
+/* Custom page header */
+.header {
+  margin-bottom: 10px;
+  display: contents;
+}
+/* Make the masthead heading the same height as the navigation */
+
+.TableHeaderColor {
+  background-color: #e4e4e4;
+}
+
+.paddingRow{
+  padding-top: 4%;
+}
+
+.HeaderOver {
+  background-color: #070944;
+  border-color: #070944;
+  height: 56px;
+}
+
+.FontColor {
+  color:white;
+  font-size: x-large; 
+}
+.FontAzul {
+  color:#070944;
+}
+
+.img{
+  width: 60%;
+}
+.img2{
+  width: 5%;
+}
+.space{
+  margin-bottom: 5%;
+}
+
+.margin{
+  padding-left: 3px;
+  padding-right: 6px;
+}
+.inner-addon {
+  position: relative;
+}
+
+.div-border {
+  border: solid 1px #070944;
+  border-radius: 35px;
+}
+.borderInput{
+  border-bottom: solid 1px #070944;
+}
+.div-card {
+  border: solid 1px #070944;
+}
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  color: #9E9E9E;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .img2{
+    width: 10%;
+  }
+}
+
+
